@@ -11,51 +11,16 @@ public class App {
     }
 
     public static void main(String[] args) {
-        f.setSize(400, 400);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        GridBagLayout gbl = new GridBagLayout();
-        f.setLayout(gbl);
 
-        // Pannello centrale con layout verticale e colore visibile
-        GridBagConstraints layout = new GridBagConstraints();
-        layout.gridx = 0;
-        layout.gridy = 1;
-        layout.gridwidth = 4;
-        layout.gridheight= 1;
-        layout.weightx = 0;
-        layout.weighty= 1;
-        layout.fill = GridBagConstraints.BOTH;
-        layout.anchor = GridBagConstraints.WEST;
-
-
+        createUi();
+        
         for (int i = 0; i < 100; i++) {
             Rubrica.addPerona("Persona "+i, "a", "a", "a", "10");
             listModel.addElement(Rubrica.getPersonaStringList().getLast());
         }
         list = new JList<>(listModel);
+        addListToUI();
 
-        JButton nuovo = addButton(gbl,1, 0, "Nuovo", GridBagConstraints.WEST);
-        JButton modifica = addButton(gbl,2, 0, "Modifica", GridBagConstraints.CENTER);
-        JButton elimina = addButton(gbl,3, 0,"Elimina",GridBagConstraints.EAST);
-        nuovo.addMouseListener(new ClickerNuovo());
-        modifica.addMouseListener(new ClickerModifica());
-        elimina.addMouseListener(new ClickerElimina());
-
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        f.add(new JLabel("Azioni"), gbc);
-
-
-        // Bottone sotto
-        JButton button = new JButton("Aggiungi etichetta");
-        button.addMouseListener(new Clicker());
-
-        JScrollPane rubircaScrolElement = new JScrollPane(list);
-        gbl.setConstraints(rubircaScrolElement, layout);
-        f.add(rubircaScrolElement);
-
-        f.setVisible(true);
     }
 
     static JButton addButton(GridBagLayout gbl, int x, int y, String str, int alg) {
@@ -75,4 +40,48 @@ public class App {
     }
     public static DefaultListModel<String> getListModel(){return listModel;}
     public static JList<String> getList(){return list;}
+
+    private static void createUi(){
+        f.setSize(400, 400);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        GridBagLayout gbl = new GridBagLayout();
+        f.setLayout(gbl);
+        GridBagConstraints gbc = new GridBagConstraints();
+
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        f.add(new JLabel("Azioni"), gbc);
+
+        // Pannello centrale con layout verticale e colore visibile
+        JButton nuovo = addButton(gbl,1, 0, "Nuovo", GridBagConstraints.WEST);
+        JButton modifica = addButton(gbl,2, 0, "Modifica", GridBagConstraints.CENTER);
+        JButton elimina = addButton(gbl,3, 0,"Elimina",GridBagConstraints.EAST);
+        nuovo.addMouseListener(new ClickerNuovo());
+        modifica.addMouseListener(new ClickerModifica());
+        elimina.addMouseListener(new ClickerElimina());
+
+
+        JButton button = new JButton("Aggiungi etichetta");
+        button.addMouseListener(new Clicker());
+
+        
+
+    }
+    private static void addListToUI(){
+        JScrollPane rubircaScrolElement = new JScrollPane(list);
+
+        GridBagConstraints layout = new GridBagConstraints();
+        layout.gridx = 0;
+        layout.gridy = 1;
+        layout.gridwidth = 4;
+        layout.gridheight= 1;
+        layout.weightx = 0;
+        layout.weighty= 1;
+        layout.fill = GridBagConstraints.BOTH;
+        layout.anchor = GridBagConstraints.WEST;
+
+
+        f.add(rubircaScrolElement,layout);
+        f.setVisible(true);
+    }
 }
