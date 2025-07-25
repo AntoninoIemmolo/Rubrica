@@ -86,7 +86,7 @@ public class ClickerNuovo extends MouseAdapter {
                 Persona p = null;
                 System.out.println(textNome.getText());
                 p = Rubrica.addPerona(textNome.getText(), textCnome.getText(), textIndr.getText(), textTel.getText(), textEtà.getText());
-                App.addPersonaUI(p.toString());
+                App.addPersonaUI(p.toStringMinInfo());
 
                 f.setVisible(false);
                 f.dispose();

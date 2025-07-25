@@ -10,7 +10,7 @@ public class Rubrica {
             return null;
         Persona p = new Persona(n, c, i, t, Integer.parseInt(e));
         personasList.add(p);
-        personasStringList.add(p.toString());
+        personasStringList.add(p.toStringMinInfo());
         return p;
     }
 

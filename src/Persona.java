@@ -1,3 +1,5 @@
+
+
 public class Persona {
     private final String nome;
     private final String cognome;
@@ -33,6 +35,7 @@ public class Persona {
     public String getTelefono() {
         return telefono;
     }
+
     @Override
     public String toString() {
         return this.nome + " " +
@@ -40,7 +43,7 @@ public class Persona {
         this.telefono+ " " +
         this.indirizzo+ " " +
         this.età;
-    }
+    };
     public String toStringNameOnly() {
         return this.nome + " " +
         this.cognome ;
@@ -51,6 +54,11 @@ public class Persona {
         this.telefono+ ";" +
         this.indirizzo+ ";" +
         this.età;
+    }
+    public String toStringMinInfo(){
+       return this.nome + " "+
+        this.cognome + " " +
+        this.telefono+ " ";
     }
 
 }

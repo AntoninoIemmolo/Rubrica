@@ -13,6 +13,11 @@ public class ClickerModifica extends MouseAdapter {
         if(list.getSelectedValue() != null){
             openWindow(list.getSelectedIndex());
         }
+        else{
+            JFrame f = new JFrame();
+            f.setSize(450, 250);
+            JOptionPane.showMessageDialog(f,"Selezione prima il contatto da modificare");
+        }
         System.out.println("-premuto");
     }
 
@@ -58,23 +63,23 @@ public class ClickerModifica extends MouseAdapter {
         gbcLabels.gridy = 4;
         f.add(new JLabel("Età:"), gbcLabels);
 
-        JTextField textNome = new JTextField(20);
+        JTextField textNome = new JTextField(Rubrica.getPersonasList().get(selectedItem).toStringFieldSafe().split(";")[0], 20);
         gbcTextFields.gridy = 0;
         f.add(textNome, gbcTextFields);
 
-        JTextField textCnome = new JTextField(20);
+        JTextField textCnome = new JTextField(Rubrica.getPersonasList().get(selectedItem).toStringFieldSafe().split(";")[1], 20);
         gbcTextFields.gridy = 1;
         f.add(textCnome, gbcTextFields);
 
-        JTextField textTel = new JTextField(20);
+        JTextField textTel = new JTextField(Rubrica.getPersonasList().get(selectedItem).toStringFieldSafe().split(";")[2], 20);
         gbcTextFields.gridy = 2;
         f.add(textTel, gbcTextFields);
 
-        JTextField textIndr = new JTextField(20);
+        JTextField textIndr= new JTextField(Rubrica.getPersonasList().get(selectedItem).toStringFieldSafe().split(";")[3], 20);
         gbcTextFields.gridy = 3;
         f.add(textIndr, gbcTextFields);
 
-        JTextField textEtà = new JTextField(20);
+        JTextField textEtà= new JTextField(Rubrica.getPersonasList().get(selectedItem).toStringFieldSafe().split(";")[4], 20);
         gbcTextFields.gridy = 4;
         gbcTextFields.weighty = 1.0;
         f.add(textEtà, gbcTextFields);
@@ -90,7 +95,7 @@ public class ClickerModifica extends MouseAdapter {
                 Persona p = Rubrica.addPerona(textNome.getText(), textCnome.getText(), textIndr.getText(), textTel.getText(), textEtà.getText());
                 if(p!=null){
                     Rubrica.remove(App.getList().getSelectedValue());
-                    App.refreshPersonaUI(selectedItem, p.toString());
+                    App.refreshPersonaUI(selectedItem, p.toStringMinInfo());
                     App.RemovePersonaUI(selectedItem);
                 }
                 f.setVisible(false);

@@ -2,7 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 
 public class App {
-    private static final JFrame f = new JFrame("Rubrica App_v0.1");
+    private static final JFrame f = new JFrame("Rubrica App_v0.3");
     private static final DefaultListModel<String> listModel=new DefaultListModel<>();
     private static JList<String> list;
     private static Persistance p;

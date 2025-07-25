@@ -22,7 +22,7 @@ public class Persistance {
         while (scan.hasNext()) { 
             s = scan.nextLine().split(";");
             Persona p = Rubrica.addPerona(s[0], s[1], s[2], s[3], s[4]);
-            App.addPersonaUI(p.toString());
+            App.addPersonaUI(p.toStringMinInfo());
         }
         scan.close();
     }
