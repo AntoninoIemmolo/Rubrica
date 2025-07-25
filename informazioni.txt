@@ -1,0 +1,10 @@
+Steve;Jobs;0612344;via Cupertino 13;56
+Stefano;Jobs;0612344;via Cupertino 13;56
+Stefano;lavori;0612344;via Cupertino 13;56
+Bill;Gates;06688989;via Redmond 10;60
+Bolletta;Gates;06688989;via Redmond 10;60
+Bolletta;Portoni;06688989;via Redmond 10;60
+Babbo;Natale;00000111;via del Polo Nord;99
+Babbo;Banane;00000111;via del Polo Nord;99
+Babbo;Banale;00000111;via del Polo Nord;99
+Babbo;Babbissimo;00000111;via del Polo Nord;99
