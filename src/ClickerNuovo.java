@@ -8,7 +8,6 @@ public class ClickerNuovo extends MouseAdapter {
 
     @Override
     public void mousePressed(java.awt.event.MouseEvent e) {
-        JList<String>list = App.getList();
 
         openWindow();
         System.out.println("-premuto");
@@ -85,7 +84,7 @@ public class ClickerNuovo extends MouseAdapter {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println(textNome.getText());
-                Persona p = Rubrica.addPerona(textNome.getText(), textCnome.getText(), textIndr.getText(), textTel.getText(), textEtà.getText());
+                Rubrica.addPerona(textNome.getText(), textCnome.getText(), textIndr.getText(), textTel.getText(), textEtà.getText());
                 f.setVisible(false);
                 f.dispose();
             }

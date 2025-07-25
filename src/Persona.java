@@ -1,9 +1,9 @@
 public class Persona {
-    private String nome;
-    private String cognome;
-    private String indirizzo;
-    private String telefono;
-    private Integer età;
+    private final String nome;
+    private final String cognome;
+    private final String indirizzo;
+    private final String telefono;
+    private final Integer età;
 
     public Persona(String n, String c, String i, String t, int e){
         this.nome = n;
@@ -46,7 +46,6 @@ public class Persona {
         this.cognome ;
     }
     public String toStringFieldSafe() {
-        
         return this.nome + ";" +
         this.cognome + ";" +
         this.telefono+ ";" +
