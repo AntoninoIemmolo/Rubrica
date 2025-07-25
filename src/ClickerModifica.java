@@ -8,16 +8,15 @@ public class ClickerModifica extends MouseAdapter {
 
     @Override
     public void mousePressed(java.awt.event.MouseEvent e) {
-        DefaultListModel<String> listModel = App.getListModel();
         JList<String>list = App.getList();
         System.out.println( list.getSelectedValue());
         if(list.getSelectedValue() != null){
-            openWindow(listModel,list.getSelectedIndex());
+            openWindow(list.getSelectedIndex());
         }
         System.out.println("-premuto");
     }
 
-    private void openWindow(DefaultListModel<String> listModel, int selectedItem) {
+    private void openWindow(int selectedItem) {
         JFrame f = new JFrame("Nuovi Dettagli Contatto");
         f.setSize(450, 250);
         f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -90,9 +89,9 @@ public class ClickerModifica extends MouseAdapter {
                 System.out.println(textNome.getText());
                 Persona p = Rubrica.addPerona(textNome.getText(), textCnome.getText(), textIndr.getText(), textTel.getText(), textEtà.getText());
                 if(p!=null){
-                    listModel.set(selectedItem, p.toString());
                     Rubrica.remove(App.getList().getSelectedValue());
-                    listModel.removeElementAt(selectedItem);
+                    App.refreshPersonaUI(selectedItem, p.toString());
+                    App.RemovePersonaUI(selectedItem);
                 }
                 f.setVisible(false);
                 f.dispose();

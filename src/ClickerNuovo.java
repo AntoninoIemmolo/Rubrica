@@ -8,14 +8,13 @@ public class ClickerNuovo extends MouseAdapter {
 
     @Override
     public void mousePressed(java.awt.event.MouseEvent e) {
-        DefaultListModel<String> listModel = App.getListModel();
         JList<String>list = App.getList();
 
-        openWindow(listModel,list.getSelectedIndex());
+        openWindow();
         System.out.println("-premuto");
     }
 
-    private void openWindow(DefaultListModel<String> listModel, int selectedItem) {
+    private void openWindow() {
         JFrame f = new JFrame("Dettagli Del Nuovo Contatto");
         f.setSize(450, 250);
         f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -87,9 +86,6 @@ public class ClickerNuovo extends MouseAdapter {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(textNome.getText());
                 Persona p = Rubrica.addPerona(textNome.getText(), textCnome.getText(), textIndr.getText(), textTel.getText(), textEtà.getText());
-                if(p!=null){
-                    listModel.addElement(p.toString());
-                }
                 f.setVisible(false);
                 f.dispose();
             }

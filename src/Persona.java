@@ -45,5 +45,13 @@ public class Persona {
         return this.nome + " " +
         this.cognome ;
     }
+    public String toStringFieldSafe() {
+        
+        return this.nome + ";" +
+        this.cognome + ";" +
+        this.telefono+ ";" +
+        this.indirizzo+ ";" +
+        this.età;
+    }
 
 }

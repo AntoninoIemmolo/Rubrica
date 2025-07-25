@@ -13,11 +13,10 @@ public class App {
     public static void main(String[] args) {
 
         createUi();
+        Persistance p = new Persistance("Saves/informazioni.txt");
+        p.loadSaves();
         
-        for (int i = 0; i < 100; i++) {
-            Rubrica.addPerona("Persona "+i, "a", "a", "a", "10");
-            listModel.addElement(Rubrica.getPersonaStringList().getLast());
-        }
+        
         list = new JList<>(listModel);
         addListToUI();
 
@@ -38,7 +37,6 @@ public class App {
         f.add(button,gbc);
         return button;
     }
-    public static DefaultListModel<String> getListModel(){return listModel;}
     public static JList<String> getList(){return list;}
 
     private static void createUi(){
@@ -84,4 +82,17 @@ public class App {
         f.add(rubircaScrolElement,layout);
         f.setVisible(true);
     }
+    public static void addPersonaUI(String entry){
+        listModel.addElement(entry);
+    }
+    public static void RemovePersonaUI(String entry){
+        listModel.removeElement(entry);
+    }
+    public static void RemovePersonaUI(int index){
+        listModel.removeElement(index);
+    }
+     public static void refreshPersonaUI(int index,String entry){
+        listModel.set(index, entry);
+    }
 }
+

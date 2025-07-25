@@ -2,8 +2,8 @@
 import java.util.LinkedList;
 
 public class Rubrica {
-    private static LinkedList<Persona> personasList = new LinkedList<>();
-    private static LinkedList<String> personasStringList = new LinkedList<>();
+    private static final LinkedList<Persona> personasList = new LinkedList<>();
+    private static final LinkedList<String> personasStringList = new LinkedList<>();
 
     public static Persona addPerona(String n, String c, String i, String t, String e){
         if(n.equals("") || c.equals("") || i.equals("") || t.equals("") || e.equals(""))
@@ -14,17 +14,6 @@ public class Rubrica {
         return p;
     }
 
-    private static Persona getPersonaByNameSurname(String n, String s){
-        return personasList.stream().filter((A)->{
-            return A.getNome().equals(n) && A.getCognome().equals(s);
-        }).toList().getFirst();
-    }
-    private static Persona getPersonaByNumber(String n){
-        return personasList.stream().filter((A)->{
-            return A.getTelefono().equals(n);
-        }).toList().getFirst();
-    }
-    
     public static LinkedList<Persona> getPersonasList() {
         return personasList;
     }
@@ -36,5 +25,12 @@ public class Rubrica {
         personasList.remove(indx);
         personasStringList.remove(indx);
     }
+    
+    public static void remove(int index){
+        personasList.remove(index);
+        personasStringList.remove(index);
+    }
+
+    
 
 }
