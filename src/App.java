@@ -3,7 +3,7 @@ import javax.swing.*;
 
 public class App {
     private static final JFrame f = new JFrame("Rubrica App_v0.1");
-    private static DefaultListModel<String> listModel=new DefaultListModel<>();
+    private static final DefaultListModel<String> listModel=new DefaultListModel<>();
     private static JList<String> list;
 
     public static JFrame getFrame() {

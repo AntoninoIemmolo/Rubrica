@@ -80,6 +80,7 @@ public class ClickerNuovo extends MouseAdapter {
 
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         JButton saveButton = new JButton("Salva");
+        JButton annullaButton = new JButton("Annulla");
         buttonPanel.add(saveButton);
         saveButton.addActionListener(new ActionListener() {
             @Override
@@ -89,6 +90,15 @@ public class ClickerNuovo extends MouseAdapter {
                 if(p!=null){
                     listModel.addElement(p.toString());
                 }
+                f.setVisible(false);
+                f.dispose();
+            }
+        });
+        buttonPanel.add(annullaButton);
+        annullaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("annulla");
                 f.setVisible(false);
                 f.dispose();
             }
