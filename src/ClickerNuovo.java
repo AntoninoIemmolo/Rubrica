@@ -83,8 +83,11 @@ public class ClickerNuovo extends MouseAdapter {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Persona p = null;
                 System.out.println(textNome.getText());
-                Rubrica.addPerona(textNome.getText(), textCnome.getText(), textIndr.getText(), textTel.getText(), textEtà.getText());
+                p = Rubrica.addPerona(textNome.getText(), textCnome.getText(), textIndr.getText(), textTel.getText(), textEtà.getText());
+                App.addPersonaUI(p.toString());
+
                 f.setVisible(false);
                 f.dispose();
             }

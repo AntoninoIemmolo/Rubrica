@@ -5,6 +5,7 @@ public class App {
     private static final JFrame f = new JFrame("Rubrica App_v0.1");
     private static final DefaultListModel<String> listModel=new DefaultListModel<>();
     private static JList<String> list;
+    private static Persistance p;
 
     public static JFrame getFrame() {
         return f;
@@ -13,7 +14,7 @@ public class App {
     public static void main(String[] args) {
 
         createUi();
-        Persistance p = new Persistance("Saves/informazioni.txt");
+        p = new Persistance("Saves/informazioni.txt");
         p.loadSaves();
         
         
@@ -84,15 +85,19 @@ public class App {
     }
     public static void addPersonaUI(String entry){
         listModel.addElement(entry);
+        p.refreshSaves();
     }
     public static void RemovePersonaUI(String entry){
         listModel.removeElement(entry);
+        p.refreshSaves();
     }
     public static void RemovePersonaUI(int index){
         listModel.removeElement(index);
+        p.refreshSaves();
     }
-     public static void refreshPersonaUI(int index,String entry){
+    public static void refreshPersonaUI(int index,String entry){
         listModel.set(index, entry);
+        p.refreshSaves();
     }
 }
 

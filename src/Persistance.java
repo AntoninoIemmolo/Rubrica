@@ -1,6 +1,7 @@
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Persistance {
@@ -24,6 +25,21 @@ public class Persistance {
             App.addPersonaUI(p.toString());
         }
         scan.close();
+    }
+    public void refreshSaves(){
+        File file = new File(path);
+        PrintStream ps = null;
+
+        try {
+            ps = new PrintStream(file);
+        } catch (FileNotFoundException e) {
+            return;
+        }
+
+        for(Persona p: Rubrica.getPersonasList())
+            ps.println(p.toStringFieldSafe());
+
+        ps.close();
     }
 
 }
