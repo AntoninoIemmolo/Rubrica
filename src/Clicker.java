@@ -13,7 +13,6 @@ public class Clicker implements MouseListener{
     public void mousePressed(MouseEvent e) {
         System.out.println("--clickato");
         JFrame f = App.getFrame();
-        //f.add(new JLabel(), BorderLayout.SOUTH);
         f.setVisible(true);
 
         System.out.println("-premuto");

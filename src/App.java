@@ -48,13 +48,13 @@ public class App {
         GridBagConstraints gbc = new GridBagConstraints();
 
         gbc.gridx = 0;
-        gbc.gridy = 0;
+        gbc.gridy = 1;
         f.add(new JLabel("Azioni"), gbc);
 
         // Pannello centrale con layout verticale e colore visibile
-        JButton nuovo = addButton(gbl,1, 0, "Nuovo", GridBagConstraints.WEST);
-        JButton modifica = addButton(gbl,2, 0, "Modifica", GridBagConstraints.CENTER);
-        JButton elimina = addButton(gbl,3, 0,"Elimina",GridBagConstraints.EAST);
+        JButton nuovo = addButton(gbl,1, 1, "Nuovo", GridBagConstraints.WEST);
+        JButton modifica = addButton(gbl,2, 1, "Modifica", GridBagConstraints.CENTER);
+        JButton elimina = addButton(gbl,3, 1,"Elimina",GridBagConstraints.EAST);
         nuovo.addMouseListener(new ClickerNuovo());
         modifica.addMouseListener(new ClickerModifica());
         elimina.addMouseListener(new ClickerElimina());
@@ -71,7 +71,7 @@ public class App {
 
         GridBagConstraints layout = new GridBagConstraints();
         layout.gridx = 0;
-        layout.gridy = 1;
+        layout.gridy = 0;
         layout.gridwidth = 4;
         layout.gridheight= 1;
         layout.weightx = 0;
